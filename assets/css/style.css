@@ -169,6 +169,7 @@ body {
 
 .container{
   padding-inline: 15px;
+  z-index: 2;
 
 }
 
@@ -186,7 +187,7 @@ color: var(--silver-metallic);
 .has-bg-image {
   background-repeat: no-repeat;
   background-position: top-left;
-  z-index: -1; /* Lower z-index */
+  z-index: -2; /* Lower z-index */
   position: relative; /* Ensure z-index works */
 }
 
@@ -355,18 +356,42 @@ color: var(--silver-metallic);
   object-fit: cover;
 }
 
-/* .has-scrollbar{
+
+
+.has-scrollbar{
   display: flex;
   gap: 25px;
   overflow-x: auto;
   padding-block-end: 30px;
   scroll-snap-type: inline mandatory;
-  position: fixed;
+  
   bottom: 0;
   width: 100%;
 }
 
 .scrollbar-item{
+  min-width:50%;
+  scroll-snap-align: start;
+}
+
+has-scrollbar::-webkit-scrollbar{
+  height: 10px;
+}
+
+.has-scrollbar::-webkit-scrollbar-track,
+.has-scrollbar::-webkit-scrollbar-thumb{
+  border-radius:500px;
+}
+
+.has-scrollbar::-webkit-scrollbar-thumb:hover{
+  background-color: var(--coquelicot);
+}
+
+.has-scrollbar ::-webkit-scrollbar-button{
+  width: calc(25% - 25px);
+}
+
+/* .scrollbar-item{
   min-width: 100%;
   scroll-snap-align: start;
 }
@@ -686,7 +711,7 @@ color: var(--silver-metallic);
 .video {
   padding-block: 0;
   margin-block-end: -250px;
-  z-index: 2; /* Higher z-index */
+  z-index: -1; /* Higher z-index */
   position: relative; /* Ensure z-index works */
 }
 
@@ -702,6 +727,7 @@ color: var(--silver-metallic);
   align-items: center;
   overflow: hidden;
   margin: 3%;
+  box-shadow: var(--shadow-2);
 }
 
 .video-card::before{
@@ -750,7 +776,87 @@ color: var(--silver-metallic);
   #CLASS
 \*-----------------------------------*/
 
+.class{
+  padding-block-start: calc(var(--section-padding) + 250px);
+  margin: 0 3%;
+  border-radius: var(--radius-15);
+}
 
+.class .section-subtitle{
+  margin-inline: auto;
+}
+
+
+.class .section-title{
+  color: var(--white);
+}
+
+.class-card{
+  background-color: var(--white);
+  border-radius: var(--radius-15);
+  height: 100%;
+  overflow: hidden;
+}
+
+.class-card .card-banner img{
+  transition: var(--transition-2);
+}
+
+.class-card:is(:hover,:focus-within) .card-banner img{
+  transform:scale(1.1)
+}
+
+.class-card .card-content{
+  padding: 24px;
+}
+
+.class-card .title-wrapper{
+  display: flex;
+  align-items: center;
+}
+
+.class-card .title-icon{
+  padding-inline-end: 20px;
+  margin-inline-end: 20px;
+  min-width: max-content;
+  border-inline-end: 1px solid var(--gainsboro);
+}
+
+.class-card .card-title{
+  transition: var(--transition-1);
+}
+
+.class-card .card-title:is(:hover, :focus){
+  color: var(--coquelicot);
+}
+
+.class-card .card-text{
+  color: var(--sonic-silver);
+  font-size: var(--fs-6); 
+  margin-block: 16px 12px;
+}
+
+.class-card .progress-wrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--ff-catamaran);
+  color: var(--rich-black-fogra-29-1);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-800);
+  margin-block-end: 8px;
+}
+
+.class-card .progress-bg{
+  background-color: var(--coquelicot_10);
+  border-radius: 50px;
+}
+
+.class-card .progress-bar{
+  background-color: var(--coquelicot);
+  height: 10px;
+  border-radius: inherit;
+}
 
 
 
